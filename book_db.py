@@ -1,16 +1,9 @@
 import pymysql
-
+from book_flask.tools import read_config
 
 class Books():
     mysql_info = {
-        'default': {
-            'host': '222.186.173.204',  # ip
-            'port': 3306,  # 端口号
-            'password': 'qweQWE123!@#',
-            'user': 'alexhunter1943',  # 用户
-            'autocommit': True,
-
-        }
+        'default': read_config()
     }  # 所有数据库的配置
 
     def __init__(self, dbname, config='default'):

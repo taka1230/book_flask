@@ -1,15 +1,11 @@
 from flask import Flask,jsonify
-from book_flask import books
+from book_flask import book_db
 app =Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
     sqls = "select * from book_infos limit 3"
-    datas = books.Connect_DB('books').execute_many(sqls)
-    # print('data',datas)
-    # data = []
-    # for temp in datas:
-    #     data.append(temp)
+    datas = book_db.Connect_DB('books').execute_many(sqls)
     return jsonify(datas)
 
 if __name__ == '__main__':
